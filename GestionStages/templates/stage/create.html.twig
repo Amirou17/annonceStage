@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        {{ form_start(form) }}
+
+            <h1>Création d'annonce de stage :</h1>
+
+            {{ form_row(form.poste, {'attr': {'placeholder': "Le poste de Stage" }}) }}
+            {{ form_row(form.description, {'attr': {'placeholder': "La description du Stage"}}) }}
+            {{ form_row(form.type) }}
+            {{ form_row(form.actif) }}
+            {{ form_row(form.email, {'attr': {'placeholder': "L'adresse email du responsable" }}) }}
+            {{ form_row(form.societe, {'attr': {'placeholder': "Le nom de la societe"}}) }}
+            {{ form_row(form.ville, {'attr': {'placeholder': "Le nom de la ville" }}) }}
+            {{ form_row(form.categorie) }}
+            {{ form_row(form.tuteurs) }}
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">
+                        {% if editMode %}
+                            {{ 'addIntership'|trans }}
+                        {% else %}
+                            Ajouter le stage
+                            {{ 'editIntership'|trans }}
+                        {% endif %}
+                    </button>
+                </div>
+            </div>
+        {{ form_end(form) }}
+{% endblock %}
